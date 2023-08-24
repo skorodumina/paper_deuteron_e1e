@@ -31,7 +31,7 @@
 \usepackage{hyperref}
 \usepackage{float}
 
-\usepackage[margin=22mm]{geometry}
+\usepackage[margin=20mm]{geometry}
 \usepackage[autostyle=true]{csquotes}
 
 
@@ -40,7 +40,7 @@
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 
-\setlength\columnsep{25pt}
+%\setlength\columnsep{25pt}
 
 \pagenumbering{arabic}
 \pdfminorversion=5 
@@ -55,8 +55,6 @@
 \begin{document}
 
 %\runningpagewiselinenumbers
-\linenumbers
-
 %\linenumbers
 
 \date{\today}
@@ -809,31 +807,36 @@ To select good electrons among all electron candidates and to separate them from
 
 According to Ref.\!~\cite{Egian:007}, the overall EC resolution, as well as uncertainties from the EC output summing electronics, lead to fluctuations of the EC response near the hardware threshold. Therefore, to select only reliable EC signals, a minimal cut on the scattered electron momentum $P_{e'}$ was applied in the software. The value of this cut was chosen to be 0.461~GeV, according to the relation suggested in Ref.\!~\cite{Egian:007}.
 
-To eliminate part of the pion contamination, a sampling fraction cut was applied based on the different energy deposition patterns of electrons and pions in the EC. Specifically, when traveling through the EC, an electron produces an electromagnetic shower, where the deposited energy $E_{\text{tot}}$ is proportional to the electron momentum $P_{e'}$, while a $\pi^{-}$ loses a constant amount of energy per scintillation layer independently of its momentum. Therefore, for electrons the quantity $E_{\text{tot}}/P_{e'}$ plotted as a function of $P_{e'}$ is expected to follow a straight line parallel to the $x$-axis and located around the value 1/3 on the $y$-axis, since electrons lose about 2/3 of their energy in the EC lead sheets.
-
-
 \begin{figure}[htp]
 \begin{center}
  \includegraphics[width=0.45\textwidth,keepaspectratio]{pictures/event_selection/ectot.pdf}
-\vspace{-0.1cm}
 \caption{EC sampling fraction distribution for the experimental data for CLAS sector 1. The vertical line shows the position of the minimum momentum cut, while the other two curves correspond to the sampling fraction~cut.}
 \label{fig:ec_cut}
 \end{center}
 \end{figure}
 
+To eliminate part of the pion contamination, a sampling fraction cut was applied based on the different energy deposition patterns of electrons and pions in the EC. Specifically, when traveling through the EC, an electron produces an electromagnetic shower, where the deposited energy $E_{\text{tot}}$ is proportional to the electron momentum $P_{e'}$, while a $\pi^{-}$ loses a constant amount of energy per scintillation layer independently of its momentum. Therefore, for electrons the quantity $E_{\text{tot}}/P_{e'}$ plotted as a function of $P_{e'}$ is expected to follow a straight line parallel to the $x$-axis and located around the value 1/3 on the $y$-axis, since electrons lose about 2/3 of their energy in the EC lead sheets.
+
+
 Figure~\ref{fig:ec_cut} shows the EC sampling fraction ($E_{\text{tot}}/P_{e'}$) plotted as a function of the particle momentum for the experimental data. In this figure, the cut on the minimal scattered electron momentum is shown by the vertical line, while the other two curves correspond to the sampling fraction cut that was determined via Gaussian fits to individual momentum slices of the distribution.
 
 
+\begin{figure}[htp]
+\begin{center}
+ \includegraphics[width=0.45\textwidth,keepaspectratio]{pictures/event_selection/photoel.pdf}
+\caption{Influence of different CC cuts on the photoelectron distributions for CLAS sector 3. Curves from top to bottom: black curve -- only fiducial cut in the CC plane is applied, red curve -- the $\varphi_{\text{cc}}$ matching cut is added, blue curve -- the $\theta_{\text{cc}}$ matching cut is added, and green curve -- the geometrical cut that removes inefficient CC zones is added.}
+\label{fig:photoel}
+\end{center}
+\end{figure}
 
-%Further on
 
 To further improve the quality of the electron selection and $\pi^{-}/e^{-}$ separation, the \v Cerenkov counter response was analyzed~\cite{Adams:2001kk}. Figure~\ref{fig:photoel} illustrates photoelectron distributions measured in the CC for CLAS sector 3.  As seen in Fig.\!~\ref{fig:photoel}, contamination is present in the measured CC spectra in the form of a peak located at values of a few photoelectrons. The contamination is thought to originate from accidental coincidences of photomultiplier tube (PMT) noise signals with measured pion tracks~\cite{Osipenko:2004}. The goal of the event selection in the CC was to separate the spectrum of good electron candidates from the contamination peak, while minimizing the loss of good events. To achieve this goal, the following set of CC cuts was applied: 
 
 \begin{itemize}
 \item fiducial cut in the CC,
 \item $\varphi_{\text{cc}}$ matching cut,
-\item $\theta_{\text{cc}}$ matching cut,\vspace{-0.7em}
-\item geometrical cut that removes inefficient zones, and\vspace*{-10.7cm}
+\item $\theta_{\text{cc}}$ matching cut,
+\item geometrical cut that removes inefficient zones, and
 \item cut on the number of photoelectrons.
 \end{itemize}
 
@@ -843,16 +846,6 @@ Each of these cuts, except the last one, was defined in the ``CC projective plan
 
 The shape of the fiducial cut in the CC plane was taken from Ref.\!~\cite{Khetarpal:2010}. The $\varphi_{\text{cc}}$ and $\theta_{\text{cc}}$ matching procedures were based on the studies~\cite{Osipenko:2004} and~\cite{Ungaro:2010} and relied on the anticipation that for real events, there must be a one-to-one correspondence between PMT signals in the CC and the angles in the CC plane (which are calculated from the DC information), while background noise and accidentals should not show such a correlation.
 
-\begin{figure}[htp]
-\begin{center}
- \includegraphics[width=0.45\textwidth,keepaspectratio]{pictures/event_selection/photoel.pdf}
-\vspace{-0.1cm}
-\caption{Influence of different CC cuts on the photoelectron distributions for CLAS sector 3. Curves from top to bottom: black curve -- only fiducial cut in the CC plane is applied, red curve -- the $\varphi_{\text{cc}}$ matching cut is added, blue curve -- the $\theta_{\text{cc}}$ matching cut is added, and green curve -- the geometrical cut that removes inefficient CC zones is added.}
-\label{fig:photoel}
-\end{center}
-\end{figure}
-
-
 
 The idea of the $\varphi_{\text{cc}}$ matching cut is that the particle track on the right side of the CC segment should match with the signal from the right-side PMT, and vice versa. Events that do not satisfy these conditions were removed. Events with signals from both PMTs were kept.
 
@@ -860,7 +853,6 @@ The idea of the $\varphi_{\text{cc}}$ matching cut is that the particle track on
 \begin{figure}[htp]
 \begin{center}
  \includegraphics[width=0.45\textwidth,keepaspectratio]{pictures/event_selection/th_vs_seg.pdf}
-\vspace{-0.1cm}
 \caption{$\theta_{\text{cc}}$ versus CC segment distributions for CLAS sector 2. Events between the horizontal black lines were treated as good electron candidates.}
 \label{fig:th_vs_seg}
 \end{center}
@@ -890,7 +882,6 @@ The applied cuts result in a significant reduction of the contamination peak and
 Hadrons were identified through the timing information provided by the TOF System~\cite{Smith:1999ii, clas_tof_paddles}, which allowed the velocity $(\beta_{h} = v_{h}/c)$ of the hadron candidates to be determined.
 
 A charged hadron can be identified by comparing $\beta_{h}$ determined from TOF information with $\beta_{\text{n}}$ given by 
-
 \begin{equation}
 \beta_{\text{n}}=\frac{p_{h}}{\sqrt{p_{h}^{2}+m_{h}^{2}}}.
 \label{eq:hadron_hadronmass}
@@ -901,7 +892,6 @@ In Eq.\!~\eqref{eq:hadron_hadronmass} $\beta_{\text{n}}$ is termed the nominal v
 \begin{figure}[htp]
 \begin{center}
  \includegraphics[width=0.45\textwidth,keepaspectratio]{pictures/event_selection/hadron_id_cuts.pdf}
-\vspace{-0.1cm}
 \caption{$\beta_{h}$ versus momentum distributions for positive pion candidates. The thin black curve in the middle of the event band corresponds to the nominal $\beta_{\text{n}}$ given by Eq.\!~\eqref{eq:hadron_hadronmass}. The red curves show the applied hadron identification cuts. Events between the red curves were treated as good pion candidates. }
 \label{fig:hadron_id}
 \end{center}
@@ -967,7 +957,6 @@ Figure~\ref{fig:z_vertex} presents the distributions of the electron $z$-coordin
 \begin{figure}[htp]
 \begin{center}
  \includegraphics[width=0.45\textwidth,keepaspectratio]{pictures/event_selection/z_vertex.pdf}
-\vspace{-0.1cm}
 \caption{Distributions of the electron $z$-coordinate at the vertex for full (black curve) and empty (magenta curve) target runs for CLAS sector 4. Vertical red lines show the applied cuts. Both the full and empty target distributions are normalized to the corresponding~FC~charge.  }
 \label{fig:z_vertex}
 \end{center}
@@ -986,7 +975,7 @@ To identify a certain exclusive reaction, one needs to register the scattered el
 \begin{itemize}
 \item the fully exclusive topology (all final particles registered) $e p \rightarrow e' p' \pi^{+} \pi^{-} X$, and
 \item the $\pi^{-}$ missing topology $e p \rightarrow e' p' \pi^{+} X$.
-\end{itemize} %\vspace{-0.25em}
+\end{itemize} 
 
 The statistics of the fully exclusive topology are very limited, mainly because CLAS did not cover the polar angle range $0\,^{\circ}\mathrm{} < \theta_{\textrm{lab}} < 8\,^{\circ}\mathrm{}$~\cite{Mecking:2003zu}. In this experiment, the presence of this forward acceptance hole mostly impacted registration of the negative particles ($e$ and $\pi^{-}$) as their trajectories were bent by the torus magnetic field towards the beam axis. This lead to a constraint on the minimum achievable $Q^2$ for electrons and prevented registration of the majority of negative pions. As a consequence, the $\pi^{-}$ missing topology contains the dominant part of the statistics. The contribution of the fully exclusive topology to the total analyzed statistics varies from $\sim$5\% near the reaction threshold to $\sim$25\% at $W$ between 1.7 and 1.8~GeV. 
 
@@ -1041,13 +1030,13 @@ Finally, the issue of background channels should also be addressed. For the doub
 \label{Sect:excl_cut_fully_excl}
 
 
-To isolate quasi-free double-pion events in the fully exclusive topology, the distributions of the quantities determined by Eq.\!~\eqref{eq:excl_top_quant} were used. The missing momentum $P_{X}$ and the missing mass squared $M^{2}_{X[0]}$ are defined for the reaction $ep(n)\rightarrow e'p'(n')\pi^{+}\pi^{-}X$, where $X$ corresponds to the undetected part.\vspace{-1em}
+To isolate quasi-free double-pion events in the fully exclusive topology, the distributions of the quantities determined by Eq.\!~\eqref{eq:excl_top_quant} were used. The missing momentum $P_{X}$ and the missing mass squared $M^{2}_{X[0]}$ are defined for the reaction $ep(n)\rightarrow e'p'(n')\pi^{+}\pi^{-}X$, where $X$ corresponds to the undetected part.
 \begin{equation}
 \begin{aligned}
 &P_{X}&=&~|\overrightarrow{P}_{e} - \overrightarrow{P}_{e'}- \overrightarrow{P}_{p'} - \overrightarrow{P}_{\pi^{+}} - \overrightarrow{P}_{\pi^{-}}|\\[-2pt]
 &M_{X[0]}^{2}&=&~[P_{e}^{\mu} + P_{p}^{\mu}- P_{e'}^{\mu}- P_{p'}^{\mu}-  P_{\pi^{+}}^{\mu} - P_{\pi^{-}}^{\mu}]^{2}\\[-2pt]
 \end{aligned}\label{eq:excl_top_quant}
-\end{equation}%\vspace{-0.5em}
+\end{equation}
 
 Here $P_{i}^{\mu}$ are the four-momenta and $\overrightarrow{P_{i}}$ the three-momenta of particle $i$. Both quantities were calculated under the target-at-rest assumption, {\it i.e.}~considering $P^{\mu}_{p} = (0,0,0,m_{p})$ with the proton rest mass~$m_{p}$.
 
@@ -1059,7 +1048,6 @@ The quantities $P_{X}$ and $M^{2}_{X[0]}$ are unique for the fully exclusive top
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[width=0.45\textwidth,keepaspectratio]{pictures/event_selection/excl_cut_fully_extop2.pdf}
-\vspace{-0.1cm}
 \caption{Distributions of the quantities $P_{X}$ (left) and $M^{2}_{X[0]}$ (right) defined in Eq.\!~\eqref{eq:excl_top_quant} plotted for experimental data (black) and Monte Carlo simulation (blue) in one 100-MeV-wide bin in $W$. Vertical red lines indicate the cuts applied for the selection of exclusive quasi-free events. The plotted quantities as well as the values of $W$ were calculated under the target-at-rest assumption. The distributions are normalized to their maxima.}
 \label{fig:excl_top_cut}
 \end{center}
@@ -1083,28 +1071,25 @@ In the $\pi^{-}$ missing topology, the quantities $P_{X}$ and $M^{2}_{X[0]}$ def
 \begin{aligned}
 P_{X[\pi^{-}]}^{\mu}=P_{e}^{\mu} + P_{p}^{\mu}- P_{e'}^{\mu}- P_{p'}^{\mu}-  P_{\pi^{+}}^{\mu},\\[-2pt]
 \end{aligned}\label{eq:pimmiss_top_quant}
-\end{equation}%\vspace{-0.5em}
+\end{equation}
 where $P_{i}^{\mu}$ are the four-momenta of particle $i$ and $X$ corresponds to the undetected part.
 
 
 
 
-To isolate quasi-free events in the $\pi^{-}$ missing topology, a special procedure was developed, in which the following quantity was used to perform the exclusivity cut,%\vspace{-1em}
+To isolate quasi-free events in the $\pi^{-}$ missing topology, a special procedure was developed, in which the following quantity was used to perform the exclusivity cut,
 \begin{equation}
 \begin{aligned}
  M_{X[\pi^{-}]}=\sqrt{|[P_{X[\pi^{-}]}^{\mu}]^{2}|}.
 \end{aligned}\label{eq:main_top_mm_nosq}
 \end{equation}
 
-%&\sqrt{|[P_{e}^{\mu} + P_{p}^{\mu}- P_{e'}^{\mu}- P_{p'}^{\mu}-  P_{\pi^{+}}^{\mu}]^{2}|}.
-%originated mainly from FSI effects.
 
 Figure~\ref{fig:pim_miss_top_cut} shows the distribution of the quantity $M_{X[\pi^{-}]}$ plotted for the experimental data (black histogram) and Monte Carlo simulation (blue histogram) in one 25-MeV-wide $W$ bin. The magenta histogram shows the difference between them and thus represents the distribution of background events, which are mainly events affected by FSIs with the spectator. The green line corresponds to the cut applied to select quasi-free events. %This cut is applied to the reconstructed Monte Carlo events, too. 
 
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[width=0.45\textwidth,keepaspectratio]{pictures/event_selection/excl_cut_pim_miss2.pdf}
-\vspace{-0.1cm}
 \caption{Distributions of the quantity $M_{X[\pi^{-}]}$ (defined by Eq.\!~\eqref{eq:main_top_mm_nosq}) in one 25-MeV-wide $W$ bin for the experimental data (black histogram), Monte Carlo simulation (blue histogram), and their difference (magenta histogram). The explanation of the fit curves is given in the text. The green line shows the applied exclusivity cut.}
 \label{fig:pim_miss_top_cut}
 \end{center}
@@ -1125,7 +1110,7 @@ As seen in Fig.\!~\ref{fig:pim_miss_top_cut}, the exclusivity cut does not allow
 \begin{aligned}
 ~~~~F_{\text{\tiny FSI}}(W) = \frac{\text{area~under~the~orange~curve}}{\text{area~under~the~red~curve}} \leq 1.\label{eq:fsi_corr_fact}
 \end{aligned}
-\end{equation}%\vspace{-3em}
+\end{equation}
 \item In each $W$ bin, the experimental event yield was multiplied by the factor $F_{\text{\tiny FSI}}$, which served as an effective correction due to the remaining admixture of the FSI-background events.
 \end{itemize}
 
@@ -1193,30 +1178,30 @@ This approximation in the Lab to CMS transformation introduces a systematic inac
 
 Once the four-momenta of all particles were defined and transformed into the CMS, the kinematic variables that describe the reaction $ep(n) \rightarrow e'p'(n')\pi^{+}\pi^{-}$ were calculated. To define the reaction initial state, only two variables are needed. In this study, they were chosen to be the reaction invariant mass $W$ and the photon virtuality $Q^{2}$.
 
-Meanwhile, the three-body final hadron state of the reaction is unambiguously determined by five kinematic variables~\cite{Fed_an_note:2017}, and in general there can be different options for their choice. In this analysis, the following generalized set of variables was used~\cite{Fed_an_note:2017,Fed_paper_2018,Byckling:1971vca,Isupov:2017lnd,Fedotov:2008aa,Mokeev:2015lda,my_an_note:2020, my_thesis:2021}:\vspace{-0.25em}
+Meanwhile, the three-body final hadron state of the reaction is unambiguously determined by five kinematic variables~\cite{Fed_an_note:2017}, and in general there can be different options for their choice. In this analysis, the following generalized set of variables was used~\cite{Fed_an_note:2017,Fed_paper_2018,Byckling:1971vca,Isupov:2017lnd,Fedotov:2008aa,Mokeev:2015lda,my_an_note:2020, my_thesis:2021}:
 
 \begin{itemize}
-\item invariant mass of the first pair of hadrons $M_{h_{1}h_{2}}$,\vspace{-0.4em}
-\item invariant mass of the second pair of hadrons $M_{h_{2}h_{3}}$,\vspace{-0.4em}
-\item the first hadron solid angle $\Omega_{h_{1}}\! \!=\! (\theta_{h_{1}}, \varphi_{h_{1}})$, and\vspace{-0.4em}
-\item the angle $\alpha_{h_{1}}$ between the two planes (i) defined by the three-momenta of the virtual photon (or initial proton) and the first final hadron and (ii) defined by the three-momenta of all final hadrons.\vspace{-0.25em}
+\item invariant mass of the first pair of hadrons $M_{h_{1}h_{2}}$,
+\item invariant mass of the second pair of hadrons $M_{h_{2}h_{3}}$,
+\item the first hadron solid angle $\Omega_{h_{1}}\! \!=\! (\theta_{h_{1}}, \varphi_{h_{1}})$, and
+\item the angle $\alpha_{h_{1}}$ between the two planes (i) defined by the three-momenta of the virtual photon (or initial proton) and the first final hadron and (ii) defined by the three-momenta of all final hadrons.
 \end{itemize}
 
-In this study, the cross sections were obtained in three sets of variables depending on various assignments for the first, second, and third final hadrons:\vspace{-0.25em}
+In this study, the cross sections were obtained in three sets of variables depending on various assignments for the first, second, and third final hadrons:
 \begin{itemize}
 \item[1.] [$p'$, $\pi^{+}$, $\pi^{-}$]
-$M_{p'\pi^{+}}$, $M_{\pi^{+}\pi^{-}}$, $\theta_{p'}$~,~$\varphi_{p'}$~,~$\alpha_{p'}$,\vspace{-0.4em}
+$M_{p'\pi^{+}}$, $M_{\pi^{+}\pi^{-}}$, $\theta_{p'}$~,~$\varphi_{p'}$~,~$\alpha_{p'}$,
 \item[2.] [$\pi^{-}$, $\pi^{+}$, $p'$]
-$M_{\pi^{-}\pi^{+}}$, $M_{\pi^{+}p'}$, $\theta_{\pi^{-}}$, $\varphi_{\pi^{-}}$, $\alpha_{\pi^{-}}$,~\text{and}\vspace{-0.4em}
+$M_{\pi^{-}\pi^{+}}$, $M_{\pi^{+}p'}$, $\theta_{\pi^{-}}$, $\varphi_{\pi^{-}}$, $\alpha_{\pi^{-}}$,~\text{and}
 \item[3.]  [$\pi^{+}$, $\pi^{-}$, $p'$]
-$M_{\pi^{+}\pi^{-}}$, $M_{\pi^{-}p'}$, $\theta_{\pi^{+}}$, $\varphi_{\pi^{+}}$, $\alpha_{\pi^{+}}$.\vspace{-0.25em}
+$M_{\pi^{+}\pi^{-}}$, $M_{\pi^{-}p'}$, $\theta_{\pi^{+}}$, $\varphi_{\pi^{+}}$, $\alpha_{\pi^{+}}$.
 \end{itemize}
 
 
 Details on the calculation of the kinematic variables from the particle four-momenta can be found in Refs.\!~\cite{my_an_note:2020, my_thesis:2021,Fed_an_note:2017,Fedotov:2008aa}.
 
 
-\vspace{0.5em}
+
 \begin{table*}[htb]\normalsize
 \centering 
   \caption{\small Number of bins for hadronic variables.} \label{tab:summary_bins}
@@ -1235,7 +1220,7 @@ Details on the calculation of the kinematic variables from the particle four-mom
     \bottomrule
   \end{tabular}
 \end{table*}
-\vspace{0.5em}
+
 
 
 
@@ -1277,8 +1262,7 @@ M_{\text{upper}} (W) &= W - m_{h_3} \label{eq:inv_mass_boundary}
 Here $m_{h_1}$, $m_{h_2}$, and $m_{h_3}$ are the rest masses of the final hadrons. 
 
 
-Since the cross section is calculated in $W$ bins of a given width, the boundary of $M_{\text{upper}}$ is not distinct. For the purpose of binning in mass, the value of $M_{\text{upper}}$ was calculated using $W_{\text{center}}$, at the center of the $W$ bin, which caused events with $W > W_{\text{center}}$ to be located beyond $M_{\text{upper}}$. For this reason, it was decided to use a specific arrangement of mass bins with the bin width $\Delta M$ determined by\vspace{-0.25em}
-
+Since the cross section is calculated in $W$ bins of a given width, the boundary of $M_{\text{upper}}$ is not distinct. For the purpose of binning in mass, the value of $M_{\text{upper}}$ was calculated using $W_{\text{center}}$, at the center of the $W$ bin, which caused events with $W > W_{\text{center}}$ to be located beyond $M_{\text{upper}}$. For this reason, it was decided to use a specific arrangement of mass bins with the bin width $\Delta M$ determined by
 \begin{equation}
 \begin{aligned}
 \Delta M = \frac{M_{\text{upper}}-M_{\text{lower}}}{N_{\text{bins}}-1}, \\[-10pt]\label{eq:bin_width}
@@ -1296,7 +1280,7 @@ Note that the cross section in the next to last bin in invariant mass needs a co
 
 \subsubsection{Electron scattering cross section}
 
-The experimental electron scattering cross section $\sigma_{e}$ for the reaction $ep(n) \rightarrow e'p'(n') \pi^{+} \pi^{-}$ is seven-fold differential and determined by\vspace{-0.5em}
+The experimental electron scattering cross section $\sigma_{e}$ for the reaction $ep(n) \rightarrow e'p'(n') \pi^{+} \pi^{-}$ is seven-fold differential and determined by
 \begin{equation}
 \frac{\textrm{d}^{7}\sigma_{e}}{\textrm{d}W\textrm{d}Q^{2}\textrm{d}^{5}\tau} = \frac{1}{ R \! \cdot \! \mathcal{F}}  \cdot 
 \frac{\left( \frac{N_{\text{full}}}{Q_{\text{full}}}-\frac{N_{\text{empty}}}{Q_{\text{empty}}} \right)}{
@@ -1307,24 +1291,24 @@ where
 
 
 \begin{itemize}
-\item $\textrm{d}^{5}\tau = \textrm{d}M_{h_{1}h_{2}} \textrm{d}M_{h_{2}h_{3}} \textrm{d}\Omega_{h_1} \textrm{d}\alpha_{h_1}$ is the differential of the five independent variables of the $\pi^{+}\pi^{-}p$ final state, which are described in Sec.\!~\ref{Sect:kin_var};\vspace{-0.25em}
-\item $N_{\text{full}}$ and $N_{\text{empty}}$ are the numbers of selected double-pion events inside the seven-dimensional bin for runs with liquid deuterium and empty target, respectively;\vspace{-0.25em} 
-\item the quantity in the square brackets in the denominator corresponds to the luminosity (per charge) of the experiment $\mathcal{L}$ in the units cm$^{-2}\cdot$C$^{-1}$ and its components are\vspace{-0.25em}
+\item $\textrm{d}^{5}\tau = \textrm{d}M_{h_{1}h_{2}} \textrm{d}M_{h_{2}h_{3}} \textrm{d}\Omega_{h_1} \textrm{d}\alpha_{h_1}$ is the differential of the five independent variables of the $\pi^{+}\pi^{-}p$ final state, which are described in Sec.\!~\ref{Sect:kin_var};
+\item $N_{\text{full}}$ and $N_{\text{empty}}$ are the numbers of selected double-pion events inside the seven-dimensional bin for runs with liquid deuterium and empty target, respectively;
+\item the quantity in the square brackets in the denominator corresponds to the luminosity (per charge) of the experiment $\mathcal{L}$ in the units cm$^{-2}\cdot$C$^{-1}$ and its components are
 \begin{itemize}
-\item[]$\!\!\!\!\!\!\!\!$$l\!=\!2\!$ cm the target length,\vspace{-0.25em}
-\item[]$\!\!\!\!\!\!\!\!$$\rho\!=\!0.169$ g$\cdot$cm$^{-3}$ the liquid-deuterium density,\vspace{-0.25em}
-\item[ ]$\!\!\!\!\!\!\!\!$$N_{A}\!=\!6.022$$\cdot 10^{-19}$ mol$^{-1}$ Avogadro's number,\vspace{-0.25em}
-\item[ ]$\!\!\!\!\!\!\!\!$$q_{e}\!=\!1.602$$\cdot 10^{-19}$ C the elementary charge,$\:$and\vspace{-0.25em}
-\item[ ]$\!\!\!\!\!\!\!\!$$\mu_{d}\!=\!2.014$ g$\cdot$mol$^{-1}$ the deuterium~molar~mass,\vspace{-0.25em}
+\item[]$\!\!\!\!\!\!\!\!$$l\!=\!2\!$ cm the target length,\vspace{-0.1em}
+\item[]$\!\!\!\!\!\!\!\!$$\rho\!=\!0.169$ g$\cdot$cm$^{-3}$ the liquid-deuterium density,\vspace{-0.1em}
+\item[ ]$\!\!\!\!\!\!\!\!$$N_{A}\!=\!6.022$$\cdot 10^{-19}$ mol$^{-1}$ Avogadro's number,\vspace{-0.1em}
+\item[ ]$\!\!\!\!\!\!\!\!$$q_{e}\!=\!1.602$$\cdot 10^{-19}$ C the elementary charge,$\:$and\vspace{-0.1em}
+\item[ ]$\!\!\!\!\!\!\!\!$$\mu_{d}\!=\!2.014$ g$\cdot$mol$^{-1}$ the deuterium~molar~mass,\vspace{-0.1em}
 \end{itemize}
-which results in the luminosity value of $\mathcal{L}$ = 0.63$\cdot$10$^{42}$ cm$^{-2}\cdot$C$^{-1}$ = 0.63$\cdot$10$^{12}$ $\mu$b$^{-1}\cdot$C$^{-1}$;\vspace{-0.25em}
+which results in the luminosity value of $\mathcal{L}$ = 0.63$\cdot$10$^{42}$ cm$^{-2}\cdot$C$^{-1}$ = 0.63$\cdot$10$^{12}$ $\mu$b$^{-1}\cdot$C$^{-1}$;
 
 
-\item $Q_{\text{full}}$ = 3734.69 $\mu$C and $Q_{\text{empty}}$ = 464.797 $\mu$C are the values of the integrated Faraday cup charge for liquid-deuterium and empty-target runs, respectively, which results in the corresponding values of the integrated luminosity $L=\mathcal{L}\cdot Q$ of 2.35$\cdot 10^{9}$ $\mu \text{b}^{-1}$ and 0.29$\cdot 10^{9}$ $\mu \text{b}^{-1}$; \vspace{-0.25em}
+\item $Q_{\text{full}}$ = 3734.69 $\mu$C and $Q_{\text{empty}}$ = 464.797 $\mu$C are the values of the integrated Faraday cup charge for liquid-deuterium and empty-target runs, respectively, which results in the corresponding values of the integrated luminosity $L=\mathcal{L}\cdot Q$ of 2.35$\cdot 10^{9}$ $\mu \text{b}^{-1}$ and 0.29$\cdot 10^{9}$ $\mu \text{b}^{-1}$; 
 
-\item $\mathcal{E} = \mathcal{E}(\Delta W, \Delta Q^{2}, \Delta^{5}\tau)$ is the detector efficiency (which includes the detector acceptance) for each seven-dimensional bin as determined by the Monte Carlo simulation (see Sec.\!~\ref{Sect:eff_eval}); \vspace{-0.25em}
+\item $\mathcal{E} = \mathcal{E}(\Delta W, \Delta Q^{2}, \Delta^{5}\tau)$ is the detector efficiency (which includes the detector acceptance) for each seven-dimensional bin as determined by the Monte Carlo simulation (see Sec.\!~\ref{Sect:eff_eval}); 
 
-\item $R = R(\Delta W, \Delta Q^{2})$ is the radiative correction factor described in Sec.\!~\ref{Sect:rad_corr}; \vspace{-0.25em}
+\item $R = R(\Delta W, \Delta Q^{2})$ is the radiative correction factor described in Sec.\!~\ref{Sect:rad_corr}; 
 
 \item $\mathcal{F} = \mathcal{F}(\Delta W, \Delta Q^{2}, \Delta^{5}\tau)$ is the correction factor that aims at unfolding the effects of the initial proton motion (see Sec.\!~\ref{Sect:fermi_corr}).
 
@@ -1348,7 +1332,7 @@ where $\Gamma_{\text{v}}$ is the virtual photon flux given by
 \label{flux}
 \end{equation}
 
-Here $\alpha$ is the fine structure constant $\left(1/137\right)$, $m_{p}$ the proton mass, $E_{\text{beam}}$ = 2.039 GeV the energy of the incoming electrons in the Lab frame, and $\varepsilon_{\text{T}}$ the virtual photon transverse polarization given by %\vspace{-1em}
+Here $\alpha$ is the fine structure constant $\left(1/137\right)$, $m_{p}$ the proton mass, $E_{\text{beam}}$ = 2.039 GeV the energy of the incoming electrons in the Lab frame, and $\varepsilon_{\text{T}}$ the virtual photon transverse polarization given by 
 \begin{equation}
 \varepsilon_{\text{T}} = \left( 1 + 2\left( 1 +
 \frac{\nu^{2}}{Q^{2}} \right)
@@ -1403,8 +1387,7 @@ Events generated with TWOPEG-D were passed through the standard detector simulat
 In studies of double-pion production cross sections, it is important to generate enough Monte Carlo statistics in order to saturate each multi-dimensional bin of the reaction phase space with events (see Table~\ref{tab:summary_bins}). Insufficient Monte Carlo statistics will lead to an improper efficiency evaluation and an unnecessary rise in the number of empty cells (see Sec.\!~\ref{Sect:empt_cells}), thus systematically affecting the accuracy of the extracted cross sections. For this study, about 4$\cdot$10$^{10}$ double-pion events were generated in the investigated kinematic region, which was found to be sufficient.
 %Otherwise, the efficiency cannot be determined properly and the extracted cross section will lack accuracy.
 
-TWOPEG-D performs a weighted event generation~\cite{twopeg}, which means that all kinematic variables are randomly generated according to the double-pion production phase space, while each event generated at a particular kinematic point acquires an individual weight that reflects the cross section value at that point.  The efficiency factor $\mathcal{E}$ from Eq.\!~\eqref{expcrossect} was then calculated in each $\Delta W\Delta Q^2\Delta^{5}\tau$ bin by\vspace{-0.5em}
-
+TWOPEG-D performs a weighted event generation~\cite{twopeg}, which means that all kinematic variables are randomly generated according to the double-pion production phase space, while each event generated at a particular kinematic point acquires an individual weight that reflects the cross section value at that point.  The efficiency factor $\mathcal{E}$ from Eq.\!~\eqref{expcrossect} was then calculated in each $\Delta W\Delta Q^2\Delta^{5}\tau$ bin by
 \begin{equation}
 \begin{aligned}
 \mathcal{E}(\Delta W, \Delta Q^2, \Delta^{5}\tau) = \frac{\mathbb{N}_{\text{rec}}}{\mathbb{N}_{\text{gen}}} =  \frac{\sum\limits_{i=1}^{N_{\text{rec}}} w_{i}}{\sum\limits_{j=1}^{N_{\text{gen}}} w_{j}} ,
@@ -1480,8 +1463,8 @@ In the employed approach~\cite{Mo:1968cg,twopeg,twopeg-d}, the radiative photons
 \caption{\small Reciprocal of the radiative correction factor ({\it i.e.}~$1/R$) as a function of $W$ for different $Q^{2}$ bins (see Eq.\!~\eqref{eq:rad_corr}).} \label{fig:radcorr}
 \end{center}
 \end{figure}
-The radiative correction factor $R$ in Eq.\!~\eqref{expcrossect} was determined in the following way. Double-pion events either with or without radiative effects were generated with TWOPEG-D. Both radiated and non-radiated events were subjected to the Fermi smearing. Then the ratio given by Eq.\!~\eqref{eq:rad_corr} was taken in each $\Delta W \Delta Q^{2}$ bin.
 
+The radiative correction factor $R$ in Eq.\!~\eqref{expcrossect} was determined in the following way. Double-pion events either with or without radiative effects were generated with TWOPEG-D. Both radiated and non-radiated events were subjected to the Fermi smearing. Then the ratio given by Eq.\!~\eqref{eq:rad_corr} was taken in each $\Delta W \Delta Q^{2}$ bin.
 \begin{equation}
 R(\Delta W, \Delta Q^{2}) = \frac{\mathbb{N}_{\text{rad}}}{\mathbb{N}_{\text{norad}}}
 \label{eq:rad_corr}
@@ -1560,9 +1543,6 @@ where $\frac{\textrm{d}^{5}\sigma_{\text{v}}}{\textrm{d}^{5}\tau}$ is the virtua
 
 
 The calculation of the efficiency uncertainty $\delta \mathcal{E}$ is not straightforward because (i) $N_{\text{gen}}$ and $N_{\text{rec}}$ in Eq.\!~\eqref{eq:eff} are not independent and (ii) Monte Carlo events in this equation are subject to weighting. Therefore, the special approach described in Ref.\!~\cite{Laforge:1996ts} was used to calculate $\delta \mathcal{E}$. Neglecting the event migration between bins, this approach gives the following expression for the absolute statistical uncertainty of the efficiency in a bin for the case of a weighted Monte Carlo simulation,
-
-
-
 \begin{equation}
 \begin{aligned}
 \delta \mathcal{E}(\Delta^{5} \tau) = \sqrt{\frac{\mathbb{N}_{\text{gen}} - 2\mathbb{N}_{\text{rec}}}{\mathbb{N}_{\text{gen}}^{3}}\sum\limits_{i=1}^{N_{\text{rec}}} w_{i}^{2} + \frac{\mathbb{N}_{\text{rec}}^{2}}{\mathbb{N}_{\text{gen}}^{4}}\sum\limits_{j=1}^{N_{\text{gen}}} w_{j}^{2}},
@@ -1596,7 +1576,7 @@ In studies of double-pion production off free protons, the cross section model d
 Both the contribution from the empty cells and the value of the unfolding correction vary greatly (from completely insignificant to considerable) for different bins in the final hadronic variables. Therefore, the model-dependent uncertainties were estimated in each $\Delta X$ bin of the single-differential cross sections (where $X$ is one of the final state variables introduced in Sec.\!~\ref{Sect:kin_var}).
 
 
-The absolute cross section uncertainty $\delta^{\text{cells}}_{\text{model}}(\Delta X)$ due to the filling of the empty cells was calculated by\vspace{-0.5em}
+The absolute cross section uncertainty $\delta^{\text{cells}}_{\text{model}}(\Delta X)$ due to the filling of the empty cells was calculated by
 \begin{equation}
 \delta^{\text{cells}}_{\text{model}} (\Delta X) = \frac{1}{2}\left ( \left [ \frac{\textrm{d}\sigma}{\textrm{d}X} \right ]_{\text{filled}}\!\!\!\! - \left [\frac{\textrm{d}\sigma}{\textrm{d}X} \right ]_{\text{not~\!filled}}\!~\!\right ),
 \label{eq:error_mod_abs}
@@ -1605,7 +1585,6 @@ where the parentheses contain the difference between the cross section values ca
 
 
 For each $\Delta X$ bin of the single-differential distributions, the relative uncertainty due to the unfolding procedure was estimated by
-
 \begin{equation}
 \varepsilon^{\text{unfold}}_{\text{model}} (\Delta X) = \left |\dfrac{\left [ \frac{\textrm{d}\sigma}{\textrm{d}X} \right ]_{\text{folded}} - \left [ \frac{\textrm{d}\sigma}{\textrm{d}X} \right ]_{\text{unfolded}}}{\left [ \frac{\textrm{d}\sigma}{\textrm{d}X} \right ]_{\text{folded}} + \left [ \frac{\textrm{d}\sigma}{\textrm{d}X} \right ]_{\text{unfolded}}} \right |.
 \label{eq:rel_mod_err_fermi}
@@ -1698,7 +1677,7 @@ For reactions occurring off nucleons contained in nuclei, one can separate FSIs 
 \item interactions among the final hadrons\footnote[3]{Here the term ``final hadrons" denotes $p'$, $\pi^{+}$, and $\pi^{-}$, which define the reaction final state.} and
 \item interaction of the final hadrons with the spectator nucleon\footnote[4]{Here the term ``spectator" denotes the neutron, which is the spectator of the original exclusive reaction.}.
 \end{itemize}
-%\vspace{-0.95em}
+
 
 Both FSI types can involve simple momentum exchanges between the hadrons, as well as far more complicated processes, such as nucleon resonance excitations or charge exchange.
 
@@ -1757,7 +1736,13 @@ Final hadrons attributed to various topologies have different kinematics and the
 
 To better understand the redistribution of events with FSIs in the fully exclusive topology, experimental $P_{X}$ and  $M^{2}_{X[\pi^{-}]}$ distributions were examined in different slices of the final hadron momentum magnitudes and polar angles (in the Lab system). 
 
+In general, the proportion of events affected by FSIs with the spectator was found to vary greatly (from negligible to considerable) in different ranges of final hadron momenta/angles.  
 
+
+
+Remarkably, some regions of the reaction phase space were found to be completely dominated by quasi-free events.  For example, Fig.\!~\ref{fig:fsi_pim_mom} shows a good match between the experimental (black) and the simulated (blue) distributions of the quantities $P_{X}$ (left) and $M^{2}_{X[\pi^{-}]}$ (right) for $\pi^{-}$ momentum magnitudes from 0.5~GeV to 1.4~GeV, which indicates the dominance of quasi-free events in this momentum range.
+
+Conversely, other regions of the reaction phase space were revealed to be mostly populated by events with FSI-disturbed kinematics. Figure~\ref{fig:fsi_pr_ang} illustrates this effect for proton polar angles ranging from 40$^{\circ}$ to 60$^{\circ}$, where a large mismatch between the experimental (black) and the simulated (blue) distributions is observed, which reveals a considerable fraction of events affected by FSI with the spectator in this kinematic region. More illustrations can be found in Ref.\!~\cite{my_thesis:2021}.
 
 \begin{figure}[htp]
 \begin{center}
@@ -1766,24 +1751,12 @@ To better understand the redistribution of events with FSIs in the fully exclusi
 \end{center}
 \end{figure}
 
-In general, the proportion of events affected by FSIs with the spectator was found to vary greatly (from negligible to considerable) in different ranges of final hadron momenta/angles.  
-
-
-
-Remarkably, some regions of the reaction phase space were found to be completely dominated by quasi-free events.  For example, Fig.\!~\ref{fig:fsi_pim_mom} shows a good match between the experimental (black) and the simulated (blue) distributions of the quantities $P_{X}$ (left) and $M^{2}_{X[\pi^{-}]}$ (right) for $\pi^{-}$ momentum magnitudes from 0.5~GeV to 1.4~GeV, which indicates the dominance of quasi-free events in this momentum range.
-
 \begin{figure}[htp]
 \begin{center}
 \includegraphics[width=0.45\textwidth]{pictures/fsi/fsi2.pdf}
 \caption{\small Experimental (black) and simulated (blue) distributions of the quantities $P_{X}$ (left) and $M^{2}_{X[\pi^{-}]}$ (right) for the proton polar angle ranging from 40$^{\circ}$ to 60$^{\circ}$. The distributions are plotted for the fully exclusive topology and normalized in a way that the maxima of the main peaks are equal to one.} \label{fig:fsi_pr_ang}
 \end{center}
 \end{figure}
-
-
-Conversely, other regions of the reaction phase space were revealed to be mostly populated by events with FSI-disturbed kinematics. Figure~\ref{fig:fsi_pr_ang} illustrates this effect for proton polar angles ranging from 40$^{\circ}$ to 60$^{\circ}$, where a large mismatch between the experimental (black) and the simulated (blue) distributions is observed, which reveals a considerable fraction of events affected by FSI with the spectator in this kinematic region. More illustrations can be found in Ref.\!~\cite{my_thesis:2021}.
-
-
-
 
 
 \subsection{FSIs in topologies with a missing hadron}
